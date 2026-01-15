@@ -41,7 +41,7 @@ const Navbar = () => {
             width={140}
             height={36}
             priority
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', borderRadius: '4px' }}
           />
         </Box>
 
