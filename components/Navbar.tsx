@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, IconButton, Avatar, Menu, MenuItem, Typography } from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, Avatar, Menu, MenuItem, Typography, Chip } from '@mui/material';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -19,39 +19,38 @@ const Navbar = () => {
       position="static"
       sx={{
         backgroundColor: '#86937F',
-        height: '73px',
+        height: '60px',
         boxShadow: 'none',
       }}
     >
       <Toolbar
         sx={{
-          height: '73px',
-          minHeight: '73px !important',
-          px: '15px',
-          pt: '10px',
+          height: '60px',
+          minHeight: '60px !important',
+          px: 3,
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'flex-start',
+          alignItems: 'center',
         }}
       >
-        {/* Logo */}
+        {/* Logo on the left */}
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Image
             src="/logo.png"
             alt="REALSEO Logo"
-            width={205}
-            height={53}
+            width={140}
+            height={36}
             priority
             style={{ objectFit: 'contain' }}
           />
         </Box>
 
         {/* Right side icons */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, pt: '10px' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
           <IconButton
             sx={{
-              width: 40,
-              height: 40,
+              width: 36,
+              height: 36,
               padding: 0,
               '&:hover': {
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -61,16 +60,16 @@ const Navbar = () => {
             <Image
               src="/icon-1.png"
               alt="Settings"
-              width={32}
-              height={32}
+              width={24}
+              height={24}
               style={{ objectFit: 'contain' }}
             />
           </IconButton>
 
           <IconButton
             sx={{
-              width: 40,
-              height: 40,
+              width: 36,
+              height: 36,
               padding: 0,
               '&:hover': {
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -80,8 +79,8 @@ const Navbar = () => {
             <Image
               src="/icon-2.png"
               alt="Notifications"
-              width={32}
-              height={32}
+              width={24}
+              height={24}
               style={{ objectFit: 'contain' }}
             />
           </IconButton>
@@ -91,12 +90,11 @@ const Navbar = () => {
               alt="David K. Croxton"
               src="/avatar.jpg"
               sx={{
-                width: 40,
-                height: 40,
+                width: 36,
+                height: 36,
                 cursor: 'pointer',
-                border: '2px solid rgba(255, 255, 255, 0.3)',
                 '&:hover': {
-                  border: '2px solid rgba(255, 255, 255, 0.6)',
+                  opacity: 0.9,
                 },
               }}
               onClick={handleAvatarClick}
@@ -106,14 +104,26 @@ const Navbar = () => {
             <Typography
               sx={{
                 color: 'white',
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: 500,
-                display: { xs: 'none', sm: 'block' },
+                display: { xs: 'none', md: 'block' },
               }}
             >
               David K. Croxton
             </Typography>
           </Box>
+
+          <Chip
+            label="33 x 34"
+            sx={{
+              ml: 2,
+              backgroundColor: '#5BA6D6',
+              color: 'white',
+              fontSize: '12px',
+              fontWeight: 600,
+              height: '28px',
+            }}
+          />
         </Box>
       </Toolbar>
 
