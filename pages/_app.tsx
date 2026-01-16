@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
             component="main"
             sx={{
               flex: 1,
-              marginLeft: '200px',
+              marginLeft: '235px',
               backgroundColor: '#F5F5F5',
               p: 0,
               minHeight: 'calc(100vh - 60px)',
