@@ -1,6 +1,8 @@
 import { Box, Button, Breadcrumbs, Typography, Link } from '@mui/material';
 import { DataTable, Column } from '@/components';
 import DownloadIcon from '@mui/icons-material/Download';
+import { GetServerSideProps } from 'next';
+import { prisma } from '@/lib/prisma';
 
 const columns: Column[] = [
   { id: 'clientName', label: 'Client Name', sortable: true, width: '150px' },
@@ -11,90 +13,51 @@ const columns: Column[] = [
   { id: 'comments', label: 'Comments', sortable: true },
 ];
 
-const rows = [
-  {
-    clientName: 'Tommie Bennett',
-    address: '13th St, New York, NY',
-    date: '09/19/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: "You'll get the most out of this guide if your desire to learn search engine optimization (SEO) is exceeded only by your...",
-  },
-  {
-    clientName: 'Margarita Fisk',
-    address: '13th St, New York, NY',
-    date: '09/22/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: "I'd be happy to provide some reviews! However, I'll need more specific information about what you'd like a review of...",
-  },
-  {
-    clientName: 'Peter A. Ayotte',
-    address: '13th St, New York, NY',
-    date: '09/26/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: 'Creative Niloy is a best SEO service provider in Bangladesh I have ever seen. He does a great job of providing top-notch...',
-  },
-  {
-    clientName: 'Katia Alexander',
-    address: '13th St, New York, NY',
-    date: '09/28/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: 'Creative Niloy is a best seo service provider in Bangladesh. We are offering professional web design and seo services like...',
-  },
-  {
-    clientName: 'Rochelle Curry',
-    address: '13th St, New York, NY',
-    date: '09/30/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: "You'll get the most out of this guide if your desire to learn search engine optimization (SEO) is exceeded only by your...",
-  },
-  {
-    clientName: 'Elizabeth Lawson',
-    address: '13th St, New York, NY',
-    date: '10/01/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: "I'd be happy to provide some reviews! However, I'll need more specific information about what you'd like a review of...",
-  },
-  {
-    clientName: 'Reba M. Kirn',
-    address: '13th St, New York, NY',
-    date: '10/02/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: 'I was looking for a reputable SMM agency for my social media page management and run a small campaign.',
-  },
-  {
-    clientName: 'Christopher Roach',
-    address: '13th St, New York, NY',
-    date: '10/03/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: 'Creative Niloy is a best seo service provider in Bangladesh. We are offering professional web design and seo services like...',
-  },
-  {
-    clientName: 'Martha Nelson',
-    address: '13th St, New York, NY',
-    date: '12/04/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: "You'll get the most out of this guide if your desire to learn search engine optimization (SEO) is exceeded only by your...",
-  },
-  {
-    clientName: 'Michelle Crivello',
-    address: '13th St, New York, NY',
-    date: '24/04/2024',
-    email: 'testdrive@snss.com',
-    cell: '+16102441567',
-    comments: 'Most probably the best SEO service company in Bangladesh. THEY ALSO offer website design, SMM, Digital Marketing...',
-  },
-];
+interface HomeProps {
+  clients: Array<{
+    id: number;
+    clientName: string;
+    address: string;
+    date: string;
+    email: string;
+    cell: string;
+    comments: string;
+  }>;
+}
 
-export default function Home() {
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const clients = await prisma.client.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      select: {
+        id: true,
+        clientName: true,
+        address: true,
+        date: true,
+        email: true,
+        cell: true,
+        comments: true,
+      },
+    });
+
+    return {
+      props: {
+        clients: JSON.parse(JSON.stringify(clients)),
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching clients:', error);
+    return {
+      props: {
+        clients: [],
+      },
+    };
+  }
+};
+
+export default function Home({ clients }: HomeProps) {
   const handleSort = (columnId: string) => {
     console.log('Sort by:', columnId);
   };
@@ -140,7 +103,8 @@ export default function Home() {
       </Box>
 
       {/* Data Table */}
-      <DataTable columns={columns} rows={rows} onSort={handleSort} />
+      <DataTable columns={columns} rows={clients} onSort={handleSort} />
     </Box>
   );
 }
+
