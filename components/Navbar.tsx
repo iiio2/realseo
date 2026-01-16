@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <AppBar
-      position="static"
+      position="sticky"
       sx={{
         backgroundColor: '#86937F',
         height: '60px',
