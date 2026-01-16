@@ -9,7 +9,7 @@ import {
   IconButton,
   Box,
 } from '@mui/material';
-import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
+import Image from 'next/image';
 
 export interface Column {
   id: string;
@@ -61,7 +61,7 @@ const DataTable = ({ columns, rows, onSort }: DataTableProps) => {
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 0.5,
+                    gap: 1,
                   }}
                 >
                   {column.label}
@@ -77,7 +77,7 @@ const DataTable = ({ columns, rows, onSort }: DataTableProps) => {
                         },
                       }}
                     >
-                      <UnfoldMoreIcon fontSize="small" />
+                     <Image src="/arrow.png" alt="Sort" width={16} height={16} style={{ objectFit: 'contain' }} /> 
                     </IconButton>
                   )}
                 </Box>
