@@ -1,27 +1,21 @@
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { useRouter } from 'next/router';
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
-import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
-import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
-import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
-import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import Image from 'next/image';
 
 interface MenuItem {
   label: string;
-  icon: React.ReactNode;
+  icon: string;
   path: string;
 }
 
 const menuItems: MenuItem[] = [
-  { label: 'Dashboard', icon: <DashboardOutlinedIcon />, path: '/' },
-  { label: 'Account Managers', icon: <PeopleOutlineIcon />, path: '/account-managers' },
-  { label: 'Tasks', icon: <AssignmentOutlinedIcon />, path: '/tasks' },
-  { label: 'Sales Team', icon: <GroupsOutlinedIcon />, path: '/sales-team' },
-  { label: 'Vendors', icon: <BusinessOutlinedIcon />, path: '/vendors' },
-  { label: 'Clients', icon: <PersonOutlineIcon />, path: '/clients' },
-  { label: 'Settings', icon: <SettingsOutlinedIcon />, path: '/settings' },
+  { label: 'Dashboard', icon: '/dashboard-icon.png', path: '/dashboard' },
+  { label: 'Account Managers', icon: '/account-manager-icon.png', path: '/account-managers' },
+  { label: 'Tasks', icon: '/account-manager-icon.png', path: '/tasks' },
+  { label: 'Sales Team', icon: '/sales-team-icon.png', path: '/sales-team' },
+  { label: 'Vendors', icon: '/account-manager-icon.png', path: '/vendors' },
+  { label: 'Clients', icon: '/clients-icon.png', path: '/' },
+  { label: 'Settings', icon: '/settings-icon.png', path: '/settings' },
 ];
 
 const Sidebar = () => {
@@ -32,7 +26,7 @@ const Sidebar = () => {
       sx={{
         width: 235,
         height: 'calc(100vh - 60px)',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#fff',
         display: 'flex',
         flexDirection: 'column',
         position: 'fixed',
@@ -41,7 +35,6 @@ const Sidebar = () => {
         pt: 2,
         pb: 3,
         overflowY: 'auto',
-        borderRight: '1px solid #E0E0E0',
       }}
     >
       {/* Navigation Items */}
@@ -67,11 +60,22 @@ const Sidebar = () => {
               >
                 <ListItemIcon
                   sx={{
-                    color: isActive ? 'white' : '#666666',
                     minWidth: 36,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
-                  {item.icon}
+                  <Image
+                    src={item.icon}
+                    alt={item.label}
+                    width={20}
+                    height={20}
+                    style={{
+                      objectFit: 'contain',
+                      filter: isActive ? 'brightness(0) invert(1)' : 'none',
+                    }}
+                  />
                 </ListItemIcon>
                 <ListItemText
                   primary={item.label}

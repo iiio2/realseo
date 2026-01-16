@@ -100,7 +100,7 @@ export default function Home() {
   };
 
   return (
-    <Box sx={{ backgroundColor: '#FFFFFF', minHeight: '100%', p: 3 }}>
+    <Box sx={{ backgroundColor: '#F9F9F9', minHeight: '100%', p: 3 }}>
       {/* Breadcrumbs */}
       <Breadcrumbs sx={{ mb: 3 }}>
         <Link
