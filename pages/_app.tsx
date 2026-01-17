@@ -11,6 +11,9 @@ const theme = createTheme({
       main: '#86937F',
     },
   },
+  typography: {
+    fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
+  },
 });
 
 export default function App({ Component, pageProps }: AppProps) {
