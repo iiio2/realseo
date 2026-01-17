@@ -63,47 +63,75 @@ export default function Home({ clients }: HomeProps) {
   };
 
   return (
-    <Box sx={{ backgroundColor: '#F9F9F9', minHeight: '100%', p: 3 }}>
-      {/* Breadcrumbs */}
-      <Breadcrumbs sx={{ mb: 3 }}>
-        <Link
-          underline="hover"
-          color="inherit"
-          href="/"
-          sx={{ fontSize: '14px', color: '#666' }}
-        >
-          Dashboard
-        </Link>
-        <Typography sx={{ fontSize: '14px', color: '#333', fontWeight: 500 }}>
-          Clients
-        </Typography>
-      </Breadcrumbs>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)' }}>
+      <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, p: 3, display: 'flex', flexDirection: 'column' }}>
+        {/* Breadcrumbs */}
+        <Breadcrumbs sx={{ mb: 3 }}>
+          <Link
+            underline="hover"
+            color="inherit"
+            href="/"
+            sx={{ fontSize: '14px', color: '#666' }}
+          >
+            Dashboard
+          </Link>
+          <Typography sx={{ fontSize: '14px', color: '#333', fontWeight: 500 }}>
+            Clients
+          </Typography>
+        </Breadcrumbs>
 
-      {/* Download CSV Button */}
-      <Box sx={{ mb: 3 }}>
-        <Button
-          variant="outlined"
-          startIcon={<DownloadIcon />}
+        {/* Download CSV Button */}
+        <Box sx={{ mb: 3 }}>
+          <Button
+            variant="outlined"
+            startIcon={<DownloadIcon />}
+            sx={{
+              textTransform: 'none',
+              color: '#333',
+              borderColor: '#D0D0D0',
+              fontSize: '14px',
+              fontWeight: 500,
+              px: 2.5,
+              py: 1,
+              '&:hover': {
+                borderColor: '#A0A0A0',
+                backgroundColor: '#F9F9F9',
+              },
+            }}
+          >
+            Download CSV
+          </Button>
+        </Box>
+
+        {/* Data Table */}
+        <DataTable columns={columns} rows={clients} onSort={handleSort} />
+
+        {/* Spacer to push footer down */}
+        <Box sx={{ flex: 1 }} />
+
+        {/* Footer */}
+        <Box
           sx={{
-            textTransform: 'none',
-            color: '#333',
-            borderColor: '#D0D0D0',
-            fontSize: '14px',
-            fontWeight: 500,
-            px: 2.5,
-            py: 1,
-            '&:hover': {
-              borderColor: '#A0A0A0',
-              backgroundColor: '#F9F9F9',
-            },
+            backgroundColor: '#fff',
+            padding: '1.8rem',
+            color: '#000',
+            fontSize: '16px',
+            fontWeight: 400,
+            borderTopLeftRadius: '10px',
+            borderTopRightRadius: '10px',
+            mt: 3,
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
         >
-          Download CSV
-        </Button>
+          <p>Copyright @2023 Real.seo digital</p>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <p>Terms and Conditions</p>
+            <p>Privacy Poolicy</p>
+          </div>
+        </Box>
       </Box>
-
-      {/* Data Table */}
-      <DataTable columns={columns} rows={clients} onSort={handleSort} />
     </Box>
   );
 }
