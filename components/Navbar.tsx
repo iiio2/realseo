@@ -19,14 +19,11 @@ const Navbar = () => {
       position="sticky"
       sx={{
         backgroundColor: '#86937F',
-        height: '60px',
         boxShadow: 'none',
       }}
     >
       <Toolbar
         sx={{
-          height: '60px',
-          minHeight: '60px !important',
           px: 3,
           display: 'flex',
           justifyContent: 'space-between',
@@ -34,14 +31,22 @@ const Navbar = () => {
         }}
       >
         {/* Logo on the left */}
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 4, paddingTop: '12px', paddingBottom:'7px' }}>
           <Image
-            src="/logo.png"
+            src="/new-logo.png"
             alt="REALSEO Logo"
-            width={140}
-            height={36}
+            width={205}
+            height={53}
             priority
-            style={{ objectFit: 'contain', borderRadius: '4px' }}
+            style={{ objectFit: 'contain', borderRadius: '4px', }}
+          />
+          <Image
+            src="/three-icon.png"
+            alt='Three icon'
+            width={34}
+            height={20}
+            priority
+            style={{ objectFit: 'contain' }}
           />
         </Box>
 
@@ -49,8 +54,26 @@ const Navbar = () => {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
           <IconButton
             sx={{
-              width: 36,
-              height: 36,
+              width: 33,
+              height: 34,
+              padding: 0,
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              },
+            }}
+          >
+            <Image
+              src="/ject.png"
+              alt="Settings"
+              width={24}
+              height={24}
+              style={{ objectFit: 'contain' }}
+            />
+          </IconButton>
+          <IconButton
+            sx={{
+              width: 33,
+              height: 34,
               padding: 0,
               '&:hover': {
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -68,8 +91,8 @@ const Navbar = () => {
 
           <IconButton
             sx={{
-              width: 36,
-              height: 36,
+              width: 33,
+              height: 34,
               padding: 0,
               '&:hover': {
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
