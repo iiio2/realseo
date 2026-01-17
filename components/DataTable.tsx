@@ -92,7 +92,7 @@ const DataTable = ({ columns, rows, onSort }: DataTableProps) => {
               sx={{
                 backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F9F9F9',
                 '&:hover': {
-                  backgroundColor: '#F5F5F5',
+                  // backgroundColor: '#F5F5F5',
                 },
               }}
             >
