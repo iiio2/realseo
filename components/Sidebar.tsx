@@ -40,7 +40,9 @@ const Sidebar = () => {
       {/* Navigation Items */}
       <List sx={{ px: 2, flex: 1 }}>
         {menuItems.map((item) => {
-          const isActive = router.pathname === item.path;
+          const isActive =
+            router.pathname === item.path ||
+            (item.path === '/' && router.pathname === '/new');
 
           return (
             <ListItem key={item.label} disablePadding sx={{ mb: 0.5 }}>

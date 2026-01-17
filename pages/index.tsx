@@ -105,32 +105,6 @@ export default function Home({ clients }: HomeProps) {
 
         {/* Data Table */}
         <DataTable columns={columns} rows={clients} onSort={handleSort} />
-
-        {/* Spacer to push footer down */}
-        <Box sx={{ flex: 1 }} />
-
-        {/* Footer */}
-        <Box
-          sx={{
-            backgroundColor: '#fff',
-            padding: '1.8rem',
-            color: '#000',
-            fontSize: '16px',
-            fontWeight: 400,
-            borderTopLeftRadius: '10px',
-            borderTopRightRadius: '10px',
-            mt: 3,
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <p>Copyright @2023 Real.seo digital</p>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <p>Terms and Conditions</p>
-            <p>Privacy Poolicy</p>
-          </div>
-        </Box>
       </Box>
     </Box>
   );

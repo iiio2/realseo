@@ -96,100 +96,99 @@ export default function New() {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)' }}>
-      <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, p: 3 }}>
-        {/* Breadcrumbs */}
-        <Breadcrumbs sx={{ mb: 3 }}>
-          <Link
-            underline="hover"
-            color="inherit"
-            href="/"
-            sx={{ fontSize: '14px', color: '#666' }}
+    <Box sx={{ p: 3 }}>
+      {/* Breadcrumbs */}
+      <Breadcrumbs sx={{ mb: 3 }}>
+        <Link
+          underline="hover"
+          color="inherit"
+          href="/"
+          sx={{ fontSize: '14px', color: '#666' }}
+        >
+          Dashboard
+        </Link>
+        <Typography sx={{ fontSize: '14px', color: '#333', fontWeight: 500 }}>
+          Clients
+        </Typography>
+      </Breadcrumbs>
+
+      {/* Form Container */}
+      <Box sx={{ backgroundColor: '#fff', borderRadius: '8px', p: 4 }}>
+        {/* Form Title */}
+        <Box sx={{ mb: 4 }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 600,
+              color: '#333',
+              mb: 1,
+              fontSize: '20px',
+            }}
           >
-            Dashboard
-          </Link>
-          <Typography sx={{ fontSize: '14px', color: '#333', fontWeight: 500 }}>
-            Clients
+            Add New Client
           </Typography>
-        </Breadcrumbs>
+          <Box
+            sx={{
+              width: '60px',
+              height: '3px',
+              backgroundColor: '#86937F',
+            }}
+          />
+        </Box>
 
-        {/* Form Container */}
-        <Box sx={{ backgroundColor: '#fff', borderRadius: '8px', p: 4 }}>
-          {/* Form Title */}
-          <Box sx={{ mb: 4 }}>
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 600,
-                color: '#333',
-                mb: 1,
-                fontSize: '20px',
-              }}
-            >
-              Add New Client
-            </Typography>
-            <Box
-              sx={{
-                width: '60px',
-                height: '3px',
-                backgroundColor: '#86937F',
-              }}
-            />
-          </Box>
-
-          {/* Form */}
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Grid container spacing={3}>
-              {/* Row 1 */}
-              <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-                <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
-                  First Name:
-                </Typography>
-                <TextField
-                  {...register('firstName')}
-                  fullWidth
-                  placeholder="Xion"
-                  error={!!errors.firstName}
-                  InputProps={{
-                    endAdornment: isFieldValid('firstName') ? (
-                      <InputAdornment position="end">
-                        <CheckCircleIcon sx={{ color: '#4caf50', fontSize: '20px' }} />
-                      </InputAdornment>
-                    ) : null,
-                  }}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '6px',
-                      backgroundColor: '#fff',
-                      fontSize: '14px',
-                      '& fieldset': {
-                        borderColor: '#D0D0D0',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: '#A0A0A0',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                      },
+        {/* Form */}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Grid container spacing={3}>
+            {/* Row 1 */}
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
+              <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
+                First Name:
+              </Typography>
+              <TextField
+                {...register('firstName')}
+                fullWidth
+                placeholder="Xion"
+                error={!!errors.firstName}
+                InputProps={{
+                  endAdornment: isFieldValid('firstName') ? (
+                    <InputAdornment position="end">
+                      <CheckCircleIcon sx={{ color: '#4caf50', fontSize: '20px' }} />
+                    </InputAdornment>
+                  ) : null,
+                }}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '6px',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    '& fieldset': {
+                      borderColor: '#D0D0D0',
                     },
-                    '& .MuiInputBase-input::placeholder': {
-                      color: '#999',
-                      opacity: 1,
+                    '&:hover fieldset': {
+                      borderColor: '#A0A0A0',
                     },
-                  }}
-                />
-                {errors.firstName && (
-                  <FormHelperText error sx={{ ml: 0 }}>
-                    {errors.firstName.message}
-                  </FormHelperText>
-                )}
-              </Grid>
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#1976d2',
+                    },
+                  },
+                  '& .MuiInputBase-input::placeholder': {
+                    color: '#999',
+                    opacity: 1,
+                  },
+                }}
+              />
+              {errors.firstName && (
+                <FormHelperText error sx={{ ml: 0 }}>
+                  {errors.firstName.message}
+                </FormHelperText>
+              )}
+            </Grid>
 
-              <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-                <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
+              <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
                   Last Name:
-                </Typography>
-                <TextField
+              </Typography>
+              <TextField
                   {...register('lastName')}
                   fullWidth
                   placeholder="Ashly"
@@ -221,19 +220,19 @@ export default function New() {
                       opacity: 1,
                     },
                   }}
-                />
-                {errors.lastName && (
-                  <FormHelperText error sx={{ ml: 0 }}>
-                    {errors.lastName.message}
-                  </FormHelperText>
-                )}
-              </Grid>
+              />
+              {errors.lastName && (
+                <FormHelperText error sx={{ ml: 0 }}>
+                  {errors.lastName.message}
+                </FormHelperText>
+              )}
+            </Grid>
 
-              <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-                <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
+              <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
                   Address:
-                </Typography>
-                <TextField
+              </Typography>
+              <TextField
                   {...register('address')}
                   fullWidth
                   placeholder="Type your Address"
@@ -258,20 +257,20 @@ export default function New() {
                       opacity: 1,
                     },
                   }}
-                />
-                {errors.address && (
-                  <FormHelperText error sx={{ ml: 0 }}>
-                    {errors.address.message}
-                  </FormHelperText>
-                )}
-              </Grid>
+              />
+              {errors.address && (
+                <FormHelperText error sx={{ ml: 0 }}>
+                  {errors.address.message}
+                </FormHelperText>
+              )}
+            </Grid>
 
               {/* Row 2 */}
-              <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-                <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
+              <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
                   Date of Birth:
-                </Typography>
-                <TextField
+              </Typography>
+              <TextField
                   {...register('dateOfBirth')}
                   fullWidth
                   type="date"
@@ -292,19 +291,19 @@ export default function New() {
                       },
                     },
                   }}
-                />
-                {errors.dateOfBirth && (
-                  <FormHelperText error sx={{ ml: 0 }}>
-                    {errors.dateOfBirth.message}
-                  </FormHelperText>
-                )}
-              </Grid>
+              />
+              {errors.dateOfBirth && (
+                <FormHelperText error sx={{ ml: 0 }}>
+                  {errors.dateOfBirth.message}
+                </FormHelperText>
+              )}
+            </Grid>
 
-              <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-                <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
+              <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
                   Contact Email:
-                </Typography>
-                <TextField
+              </Typography>
+              <TextField
                   {...register('contactEmail')}
                   fullWidth
                   type="email"
@@ -330,19 +329,19 @@ export default function New() {
                       opacity: 1,
                     },
                   }}
-                />
-                {errors.contactEmail && (
-                  <FormHelperText error sx={{ ml: 0 }}>
-                    {errors.contactEmail.message}
-                  </FormHelperText>
-                )}
-              </Grid>
+              />
+              {errors.contactEmail && (
+                <FormHelperText error sx={{ ml: 0 }}>
+                  {errors.contactEmail.message}
+                </FormHelperText>
+              )}
+            </Grid>
 
-              <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-                <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
+              <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
                   Contact Cell Number:
-                </Typography>
-                <TextField
+              </Typography>
+              <TextField
                   {...register('contactCell')}
                   fullWidth
                   placeholder="Type your Cell No"
@@ -367,20 +366,20 @@ export default function New() {
                       opacity: 1,
                     },
                   }}
-                />
-                {errors.contactCell && (
-                  <FormHelperText error sx={{ ml: 0 }}>
-                    {errors.contactCell.message}
-                  </FormHelperText>
-                )}
-              </Grid>
+              />
+              {errors.contactCell && (
+                <FormHelperText error sx={{ ml: 0 }}>
+                  {errors.contactCell.message}
+                </FormHelperText>
+              )}
+            </Grid>
 
-              {/* Row 3 */}
-              <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-                <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
+            {/* Row 3 */}
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
+              <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
                   Company Name
-                </Typography>
-                <TextField
+              </Typography>
+              <TextField
                   {...register('companyName')}
                   fullWidth
                   placeholder="Type Here"
@@ -407,12 +406,12 @@ export default function New() {
                 />
               </Grid>
 
-              <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-                <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
+              <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
                   Price
                 </Typography>
-                <FormControl fullWidth error={!!errors.price}>
-                  <Select
+              <FormControl fullWidth error={!!errors.price}>
+                <Select
                     {...register('price')}
                     displayEmpty
                     defaultValue=""
@@ -438,20 +437,20 @@ export default function New() {
                     <MenuItem value="standard">Standard Package - $1000</MenuItem>
                     <MenuItem value="premium">Premium Package - $2000</MenuItem>
                     <MenuItem value="enterprise">Enterprise Package - $5000</MenuItem>
-                  </Select>
-                  {errors.price && (
-                    <FormHelperText error sx={{ ml: 0 }}>
-                      {errors.price.message}
-                    </FormHelperText>
-                  )}
-                </FormControl>
+                </Select>
+                {errors.price && (
+                  <FormHelperText error sx={{ ml: 0 }}>
+                    {errors.price.message}
+                  </FormHelperText>
+                )}
+              </FormControl>
               </Grid>
 
-              <Grid size={{ xs: 12, sm: 4, md: 4 }}>
-                <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }}>
+              <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
                   Comments
-                </Typography>
-                <TextField
+              </Typography>
+              <TextField
                   {...register('comments')}
                   fullWidth
                   placeholder="You'll get"
@@ -477,11 +476,11 @@ export default function New() {
                   }}
                 />
               </Grid>
-            </Grid>
+          </Grid>
 
-            {/* Action Buttons */}
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 4 }}>
-              <Button
+          {/* Action Buttons */}
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 4 }}>
+            <Button
                 variant="outlined"
                 onClick={handleBack}
                 type="button"
@@ -499,10 +498,10 @@ export default function New() {
                     backgroundColor: '#F9F9F9',
                   },
                 }}
-              >
-                BACK
-              </Button>
-              <Button
+            >
+              BACK
+            </Button>
+            <Button
                 variant="contained"
                 type="submit"
                 sx={{
@@ -518,12 +517,11 @@ export default function New() {
                     backgroundColor: '#6f7a68',
                   },
                 }}
-              >
-                NEXT
-              </Button>
-            </Box>
-          </form>
-        </Box>
+            >
+              NEXT
+            </Button>
+          </Box>
+        </form>
       </Box>
     </Box>
   );
