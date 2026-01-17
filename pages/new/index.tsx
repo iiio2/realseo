@@ -149,12 +149,14 @@ export default function New() {
                 fullWidth
                 placeholder="Xion"
                 error={!!errors.firstName}
-                InputProps={{
-                  endAdornment: isFieldValid('firstName') ? (
-                    <InputAdornment position="end">
-                      <CheckCircleIcon sx={{ color: '#4caf50', fontSize: '20px' }} />
-                    </InputAdornment>
-                  ) : null,
+                slotProps={{
+                  input: {
+                    endAdornment: isFieldValid('firstName') ? (
+                      <InputAdornment position="end">
+                        <CheckCircleIcon sx={{ color: '#4caf50', fontSize: '20px' }} />
+                      </InputAdornment>
+                    ) : null,
+                  }
                 }}
                 sx={{
                   '& .MuiOutlinedInput-root': {
@@ -193,12 +195,14 @@ export default function New() {
                   fullWidth
                   placeholder="Ashly"
                   error={!!errors.lastName}
-                  InputProps={{
-                    endAdornment: isFieldValid('lastName') ? (
-                      <InputAdornment position="end">
-                        <CheckCircleIcon sx={{ color: '#4caf50', fontSize: '20px' }} />
-                      </InputAdornment>
-                    ) : null,
+                  slotProps={{
+                    input: {
+                      endAdornment: isFieldValid('lastName') ? (
+                        <InputAdornment position="end">
+                          <CheckCircleIcon sx={{ color: '#4caf50', fontSize: '20px' }} />
+                        </InputAdornment>
+                      ) : null,
+                    }
                   }}
                   sx={{
                     '& .MuiOutlinedInput-root': {
