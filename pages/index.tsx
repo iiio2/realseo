@@ -1,8 +1,9 @@
 import { Box, Button, Breadcrumbs, Typography, Link } from '@mui/material';
 import { DataTable, Column } from '@/components';
-import DownloadIcon from '@mui/icons-material/Download';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import { GetServerSideProps } from 'next';
 import { prisma } from '@/lib/prisma';
+import { convertToCSV, downloadCSV } from '@/utils/csvExport';
 
 const columns: Column[] = [
   { id: 'clientName', label: 'Client Name', sortable: true, width: '150px' },
@@ -62,6 +63,30 @@ export default function Home({ clients }: HomeProps) {
     console.log('Sort by:', columnId);
   };
 
+  const handleDownloadCSV = () => {
+    try {
+      if (!clients || clients.length === 0) {
+        console.warn('No clients to export');
+        return;
+      }
+
+      const headers: Array<{ key: keyof typeof clients[0]; label: string }> = [
+        { key: 'clientName', label: 'Client Name' },
+        { key: 'address', label: 'Address' },
+        { key: 'date', label: 'Date' },
+        { key: 'email', label: 'Email' },
+        { key: 'cell', label: 'Cell' },
+        { key: 'comments', label: 'Comments' },
+      ];
+
+      const csvContent = convertToCSV(clients, headers);
+      const timestamp = new Date().toISOString().split('T')[0];
+      downloadCSV(csvContent, `clients-${timestamp}.csv`);
+    } catch (error) {
+      console.error('Error downloading CSV:', error);
+    }
+  };
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)' }}>
       <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, p: 3, display: 'flex', flexDirection: 'column' }}>
@@ -80,11 +105,11 @@ export default function Home({ clients }: HomeProps) {
           </Typography>
         </Breadcrumbs>
 
-        {/* Download CSV Button */}
         <Box sx={{ mb: 3 }}>
           <Button
             variant="outlined"
-            startIcon={<DownloadIcon />}
+            endIcon={<FileUploadOutlinedIcon />}
+            onClick={handleDownloadCSV}
             sx={{
               textTransform: 'none',
               color: '#333',
