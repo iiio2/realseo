@@ -1,4 +1,5 @@
-import { AppBar, Box, Toolbar, IconButton, Avatar, Menu, MenuItem, Typography, Chip } from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, Avatar, Menu, MenuItem, Typography } from '@mui/material';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -52,75 +53,52 @@ const Navbar = () => {
 
         {/* Right side icons */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-          <IconButton
-            sx={{
-              width: 33,
-              height: 34,
-              padding: 0,
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              },
-            }}
-          >
+          
             <Image
               src="/ject.png"
-              alt="Settings"
-              width={24}
-              height={24}
+              alt="Bug Report"
+              width={33}
+              height={34}
               style={{ objectFit: 'contain' }}
             />
-          </IconButton>
-          <IconButton
-            sx={{
-              width: 33,
-              height: 34,
-              padding: 0,
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              },
-            }}
-          >
+      
             <Image
               src="/icon-1.png"
-              alt="Settings"
-              width={24}
-              height={24}
+              alt="Notifications"
+              width={33}
+              height={34}
               style={{ objectFit: 'contain' }}
             />
-          </IconButton>
-
-          <IconButton
-            sx={{
-              width: 33,
-              height: 34,
-              padding: 0,
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              },
-            }}
-          >
+       
             <Image
               src="/icon-2.png"
-              alt="Notifications"
-              width={24}
-              height={24}
+              alt="Settings"
+              width={33}
+              height={34}
               style={{ objectFit: 'contain' }}
             />
-          </IconButton>
 
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, ml: 1 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
+              ml: 1,
+              cursor: 'pointer',
+              '&:hover': {
+                opacity: 0.9,
+              },
+            }}
+            onClick={handleAvatarClick}
+          >
             <Avatar
               alt="David K. Croxton"
-              src="/avatar.jpg"
+              src="/man.jpg"
               sx={{
-                width: 36,
-                height: 36,
-                cursor: 'pointer',
-                '&:hover': {
-                  opacity: 0.9,
-                },
+                width: 33,
+                height: 34,
+                
               }}
-              onClick={handleAvatarClick}
             >
               DC
             </Avatar>
@@ -129,24 +107,15 @@ const Navbar = () => {
                 color: 'white',
                 fontSize: '13px',
                 fontWeight: 500,
-                display: { xs: 'none', md: 'block' },
+                display: { xs: 'none', md: 'flex' },
+                alignItems: 'center',
+                gap: 0.5,
               }}
             >
               David K. Croxton
+              <KeyboardArrowDownIcon sx={{ fontSize: 20 }} />
             </Typography>
           </Box>
-
-          <Chip
-            label="33 x 34"
-            sx={{
-              ml: 2,
-              backgroundColor: '#5BA6D6',
-              color: 'white',
-              fontSize: '12px',
-              fontWeight: 600,
-              height: '28px',
-            }}
-          />
         </Box>
       </Toolbar>
 
