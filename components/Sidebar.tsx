@@ -1,6 +1,8 @@
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Drawer } from '@mui/material';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 interface MenuItem {
   label: string;
@@ -18,23 +20,23 @@ const menuItems: MenuItem[] = [
   { label: 'Settings', icon: '/settings-icon.png', path: '/settings' },
 ];
 
-const Sidebar = () => {
-  const router = useRouter();
+interface SidebarProps {
+  mobileOpen: boolean;
+  handleDrawerToggle: () => void;
+}
 
-  return (
+const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
+  const router = useRouter();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  const drawerContent = (
     <Box
       sx={{
-        width: 235,
-        height: 'calc(100vh - 60px)',
-        backgroundColor: '#fff',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'fixed',
-        left: 0,
-        top: '60px',
         pt: 2,
         pb: 3,
         overflowY: 'auto',
+        height: '100%',
       }}
     >
       {/* Navigation Items */}
@@ -91,6 +93,49 @@ const Sidebar = () => {
           );
         })}
       </List>
+    </Box>
+  );
+
+  if (isMobile) {
+    return (
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true,
+        }}
+        sx={{
+          '& .MuiDrawer-paper': {
+            width: 235,
+            boxSizing: 'border-box',
+            top: '60px',
+            height: 'calc(100vh - 60px)',
+            backgroundColor: '#fff',
+            borderRight: '1px solid #E0E0E0',
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+    );
+  }
+
+  return (
+    <Box
+      sx={{
+        width: 235,
+        flexShrink: 0,
+        height: 'calc(100vh - 60px)',
+        position: 'fixed',
+        top: '60px',
+        left: 0,
+        backgroundColor: '#fff',
+        borderRight: '1px solid #E0E0E0',
+        overflowY: 'auto',
+      }}
+    >
+      {drawerContent}
     </Box>
   );
 };

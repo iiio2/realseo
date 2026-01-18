@@ -88,18 +88,18 @@ export default function Home({ clients }: HomeProps) {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)' }}>
-      <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, p: 3, display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)', width: '100%' }}>
+      <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, pt: { xs: 2, sm: 3 }, px: { xs: 2, sm: 3 }, pb: 0, display: 'flex', flexDirection: 'column', width: '100%' }}>
         {/* Breadcrumbs */}
         <Breadcrumbs sx={{ mb: 3 }}>
           <Link
             underline="hover"
             href="/"
-            sx={{ fontSize: '14px', color: '#000' }}
+            sx={{ fontSize: { xs: '13px', md: '14px' }, color: '#000' }}
           >
             Dashboard
           </Link>
-          <Typography sx={{ fontSize: '14px', color: '#86937F', fontWeight: 500 }}>
+          <Typography sx={{ fontSize: { xs: '13px', md: '14px' }, color: '#86937F', fontWeight: 500 }}>
             Clients
           </Typography>
         </Breadcrumbs>
@@ -113,10 +113,10 @@ export default function Home({ clients }: HomeProps) {
               textTransform: 'none',
               color: '#333',
               borderColor: '#D0D0D0',
-              fontSize: '14px',
+              fontSize: { xs: '13px', md: '14px' },
               fontWeight: 500,
-              px: 2.5,
-              py: 1,
+              px: { xs: 2, sm: 2.5 },
+              py: { xs: 0.8, sm: 1 },
               '&:hover': {
                 borderColor: '#A0A0A0',
                 backgroundColor: '#F9F9F9',

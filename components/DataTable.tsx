@@ -33,10 +33,10 @@ const DataTable = ({ columns, rows, onSort }: DataTableProps) => {
         boxShadow: 'none',
         border: '1px solid #E0E0E0',
         borderRadius: '8px',
-        overflow: 'hidden',
+        overflow: 'auto',
       }}
     >
-      <Table sx={{ minWidth: 650 }}>
+      <Table sx={{ minWidth: { xs: 800, sm: 900 } }}>
         <TableHead>
           <TableRow
             sx={{
@@ -49,12 +49,13 @@ const DataTable = ({ columns, rows, onSort }: DataTableProps) => {
                 align={column.align || 'left'}
                 sx={{
                   fontWeight: 600,
-                  fontSize: '14px',
+                  fontSize: { xs: '13px', md: '14px' },
                   color: '#333',
-                  py: 2,
-                  px: 2.5,
+                  py: { xs: 1.5, md: 2 },
+                  px: { xs: 1.5, md: 2.5 },
                   borderBottom: '1px solid #E0E0E0',
                   width: column.width,
+                  whiteSpace: 'nowrap',
                 }}
               >
                 <Box
@@ -101,11 +102,12 @@ const DataTable = ({ columns, rows, onSort }: DataTableProps) => {
                   key={column.id}
                   align={column.align || 'left'}
                   sx={{
-                    fontSize: '14px',
+                    fontSize: { xs: '13px', md: '14px' },
                     color: '#333',
-                    py: 2,
-                    px: 2.5,
+                    py: { xs: 1.5, md: 2 },
+                    px: { xs: 1.5, md: 2.5 },
                     borderBottom: '1px solid #E0E0E0',
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   {row[column.id]}

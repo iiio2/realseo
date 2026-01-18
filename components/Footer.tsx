@@ -1,35 +1,47 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 const Footer = () => {
   return (
     <Box
       sx={{
-        marginLeft: '235px',
-        paddingTop: '24px',
-        paddingLeft: '24px',
-        paddingRight: '48px',
+        marginLeft: { xs: 0, sm: 0, md: '235px' },
+        paddingTop: { xs: '12px', sm: '18px', md: '24px' },
+        paddingLeft: { xs: '16px', sm: '24px' },
+        paddingRight: { xs: '16px', sm: '24px', md: '48px' },
         backgroundColor: '#f9f9f9',
       }}
     >
       <Box
         sx={{
           backgroundColor: '#fff',
-          padding: '1.8rem',
+          padding: { xs: '1.2rem', sm: '1.5rem', md: '1.8rem' },
           color: '#000',
-          fontSize: '16px',
+          fontSize: { xs: '13px', md: '16px' },
           fontWeight: 400,
           borderTopLeftRadius: '10px',
           borderTopRightRadius: '10px',
           display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
           justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems: { xs: 'flex-start', sm: 'center' },
+          gap: { xs: 2, sm: 0 },
         }}
       >
-        <p>Copyright @2023 Real.seo digital</p>
-        <div style={{ display: 'flex', gap: '1rem' }}>
-          <p>Terms and Conditions</p>
-          <p>Privacy Poolicy</p>
-        </div>
+        <Typography sx={{ fontSize: { xs: '13px', md: '16px' } }}>
+          Copyright @2023 Real.seo digital
+        </Typography>
+        <Box sx={{
+          display: 'flex',
+          gap: { xs: '0.5rem', sm: '1rem' },
+          flexDirection: { xs: 'column', sm: 'row' },
+        }}>
+          <Typography sx={{ fontSize: { xs: '13px', md: '16px' } }}>
+            Terms and Conditions
+          </Typography>
+          <Typography sx={{ fontSize: { xs: '13px', md: '16px' } }}>
+            Privacy Policy
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

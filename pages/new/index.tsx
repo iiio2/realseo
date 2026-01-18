@@ -132,8 +132,8 @@ export default function New() {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)' }}>
-      <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, p: 3, display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)', width: '100%' }}>
+      <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, p: { xs: 2, sm: 3 }, display: 'flex', flexDirection: 'column', width: '100%' }}>
         {/* Breadcrumbs */}
         <Breadcrumbs sx={{ mb: 3 }}>
         <Link
@@ -149,7 +149,7 @@ export default function New() {
       </Breadcrumbs>
 
       {/* Form Container */}
-      <Box sx={{ backgroundColor: '#fff', borderRadius: '8px', p: 4 }}>
+      <Box sx={{ backgroundColor: '#fff', borderRadius: '8px', p: { xs: 2, sm: 3, md: 4 } }}>
         {/* Form Title */}
         <Box sx={{ mb: 4 }}>
           <Typography
@@ -536,7 +536,13 @@ export default function New() {
           </Grid>
 
           {/* Action Buttons */}
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 4 }}>
+          <Box sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            justifyContent: 'flex-end',
+            gap: 2,
+            mt: 4
+          }}>
             <Button
               variant="outlined"
               onClick={handleBack}
@@ -550,6 +556,7 @@ export default function New() {
                 fontSize: '14px',
                 fontWeight: 500,
                 borderRadius: '6px',
+                width: { xs: '100%', sm: 'auto' },
                 '&:hover': {
                   borderColor: '#A0A0A0',
                   backgroundColor: '#F9F9F9',
@@ -571,6 +578,7 @@ export default function New() {
                 fontSize: '14px',
                 fontWeight: 500,
                 borderRadius: '6px',
+                width: { xs: '100%', sm: 'auto' },
                 '&:hover': {
                   backgroundColor: '#6f7a68',
                 },
