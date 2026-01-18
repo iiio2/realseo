@@ -95,10 +95,11 @@ const Navbar = () => {
               alt="David K. Croxton"
               src="/man.jpg"
               sx={{
-                width: 33,
-                height: 34,
-                
+                width: 32,
+                height: 33,
+                borderRadius:'5px'
               }}
+              variant='square'
             >
               DC
             </Avatar>
