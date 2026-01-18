@@ -89,7 +89,7 @@ export default function Home({ clients }: HomeProps) {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)', width: '100%' }}>
-      <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, pt: { xs: 2, sm: 3 }, px: { xs: 2, sm: 3 }, pb: 0, display: 'flex', flexDirection: 'column', width: '100%' }}>
+      <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, pt: { xs: 2, sm: 3 }, px: { xs: 2, sm: 3 }, pb: { xs: 2, sm: 3 }, display: 'flex', flexDirection: 'column', width: '100%' }}>
         {/* Breadcrumbs */}
         <Breadcrumbs sx={{ mb: 3 }}>
           <Link

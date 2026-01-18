@@ -48,7 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar handleDrawerToggle={handleDrawerToggle} />
         <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-          <Box sx={{ display: 'flex', flex: 1 }}>
+          <Box sx={{ display: 'flex' }}>
             <Sidebar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
             <Box
               component="main"
@@ -56,7 +56,6 @@ export default function App({ Component, pageProps }: AppProps) {
                 flexGrow: 1,
                 marginLeft: { xs: 0, sm: 0, md: '235px' },
                 p: 0,
-                minHeight: 'calc(100vh - 60px)',
                 overflow: 'hidden',
                 maxWidth: { xs: '100vw', md: 'calc(100vw - 235px)' },
               }}
