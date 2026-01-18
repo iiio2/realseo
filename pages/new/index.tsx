@@ -132,9 +132,10 @@ export default function New() {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      {/* Breadcrumbs */}
-      <Breadcrumbs sx={{ mb: 3 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 60px)' }}>
+      <Box sx={{ backgroundColor: '#F9F9F9', flex: 1, p: 3, display: 'flex', flexDirection: 'column' }}>
+        {/* Breadcrumbs */}
+        <Breadcrumbs sx={{ mb: 3 }}>
         <Link
           underline="hover"
           href="/"
@@ -583,6 +584,7 @@ export default function New() {
             </Button>
           </Box>
         </form>
+      </Box>
       </Box>
     </Box>
   );
