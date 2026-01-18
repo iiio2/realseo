@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { valibotResolver } from '@hookform/resolvers/valibot';
 import * as v from 'valibot';
@@ -18,7 +19,6 @@ import {
 import Grid from '@mui/material/Grid';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-// Valibot schema for form validation
 const formSchema = v.object({
   firstName: v.pipe(
     v.string(),
@@ -58,6 +58,8 @@ type FormData = v.InferOutput<typeof formSchema>;
 
 export default function New() {
   const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -86,9 +88,43 @@ export default function New() {
     return touchedFields[field] === true && !errors[field] && formValues[field] !== '';
   };
 
-  const onSubmit = (data: FormData) => {
-    console.log('Form Data:', data);
-    // Here you would typically submit the form or navigate to next step
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const payload = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        address: data.address,
+        dateOfBirth: data.dateOfBirth,
+        contactEmail: data.contactEmail,
+        contactCell: data.contactCell,
+        companyName: data.companyName,
+        package: data.price,
+        comments: data.comments,
+      };
+
+      const response = await fetch('/api/clients', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to create client');
+      }
+
+      router.push('/');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An unexpected error occurred');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleBack = () => {
@@ -135,6 +171,23 @@ export default function New() {
             }}
           />
         </Box>
+
+        {/* Error Display */}
+        {error && (
+          <Box
+            sx={{
+              mb: 3,
+              p: 2,
+              backgroundColor: '#ffebee',
+              borderRadius: '6px',
+              border: '1px solid #f44336',
+            }}
+          >
+            <Typography sx={{ color: '#d32f2f', fontSize: '14px' }}>
+              {error}
+            </Typography>
+          </Box>
+        )}
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -508,6 +561,7 @@ export default function New() {
             <Button
                 variant="contained"
                 type="submit"
+                disabled={isSubmitting}
                 sx={{
                   backgroundColor: '#86937F',
                   color: '#fff',
@@ -520,9 +574,13 @@ export default function New() {
                   '&:hover': {
                     backgroundColor: '#6f7a68',
                   },
+                  '&:disabled': {
+                    backgroundColor: '#d0d0d0',
+                    color: '#999',
+                  },
                 }}
             >
-              NEXT
+              {isSubmitting ? 'CREATING...' : 'NEXT'}
             </Button>
           </Box>
         </form>
