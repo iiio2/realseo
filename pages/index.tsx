@@ -94,13 +94,12 @@ export default function Home({ clients }: HomeProps) {
         <Breadcrumbs sx={{ mb: 3 }}>
           <Link
             underline="hover"
-            color="inherit"
             href="/"
-            sx={{ fontSize: '14px', color: '#666' }}
+            sx={{ fontSize: '14px', color: '#000' }}
           >
             Dashboard
           </Link>
-          <Typography sx={{ fontSize: '14px', color: '#333', fontWeight: 500 }}>
+          <Typography sx={{ fontSize: '14px', color: '#86937F', fontWeight: 500 }}>
             Clients
           </Typography>
         </Breadcrumbs>

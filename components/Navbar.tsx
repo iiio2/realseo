@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, IconButton, Avatar, Menu, MenuItem, Typography } from '@mui/material';
+import { AppBar, Box, Toolbar, Avatar, Menu, MenuItem, Typography } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Image from 'next/image';
 import { useState } from 'react';

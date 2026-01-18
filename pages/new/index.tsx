@@ -137,13 +137,12 @@ export default function New() {
       <Breadcrumbs sx={{ mb: 3 }}>
         <Link
           underline="hover"
-          color="inherit"
           href="/"
-          sx={{ fontSize: '14px', color: '#666' }}
+          sx={{ fontSize: '14px', color: '#000' }}
         >
           Dashboard
         </Link>
-        <Typography sx={{ fontSize: '14px', color: '#333', fontWeight: 500 }}>
+        <Typography sx={{ fontSize: '14px', color: '#86937F', fontWeight: 500 }}>
           Clients
         </Typography>
       </Breadcrumbs>
@@ -241,42 +240,42 @@ export default function New() {
 
             <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
-                  Last Name:
+                Last Name:
               </Typography>
               <TextField
-                  {...register('lastName')}
-                  fullWidth
-                  placeholder="Ashly"
-                  error={!!errors.lastName}
-                  slotProps={{
-                    input: {
-                      endAdornment: isFieldValid('lastName') ? (
-                        <InputAdornment position="end">
-                          <CheckCircleIcon sx={{ color: '#4caf50', fontSize: '20px' }} />
-                        </InputAdornment>
-                      ) : null,
-                    }
-                  }}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '6px',
-                      backgroundColor: '#fff',
-                      fontSize: '14px',
-                      '& fieldset': {
-                        borderColor: '#D0D0D0',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: '#A0A0A0',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                      },
+                {...register('lastName')}
+                fullWidth
+                placeholder="Ashly"
+                error={!!errors.lastName}
+                slotProps={{
+                  input: {
+                    endAdornment: isFieldValid('lastName') ? (
+                      <InputAdornment position="end">
+                        <CheckCircleIcon sx={{ color: '#4caf50', fontSize: '20px' }} />
+                      </InputAdornment>
+                    ) : null,
+                  }
+                }}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '6px',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    '& fieldset': {
+                      borderColor: '#D0D0D0',
                     },
-                    '& .MuiInputBase-input::placeholder': {
-                      color: '#999',
-                      opacity: 1,
+                    '&:hover fieldset': {
+                      borderColor: '#A0A0A0',
                     },
-                  }}
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#1976d2',
+                    },
+                  },
+                  '& .MuiInputBase-input::placeholder': {
+                    color: '#999',
+                    opacity: 1,
+                  },
+                }}
               />
               {errors.lastName && (
                 <FormHelperText error sx={{ ml: 0 }}>
@@ -287,33 +286,33 @@ export default function New() {
 
             <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
-                  Address:
+                Address:
               </Typography>
               <TextField
-                  {...register('address')}
-                  fullWidth
-                  placeholder="Type your Address"
-                  error={!!errors.address}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '6px',
-                      backgroundColor: '#fff',
-                      fontSize: '14px',
-                      '& fieldset': {
-                        borderColor: '#D0D0D0',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: '#A0A0A0',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                      },
+                {...register('address')}
+                fullWidth
+                placeholder="Type your Address"
+                error={!!errors.address}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '6px',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    '& fieldset': {
+                      borderColor: '#D0D0D0',
                     },
-                    '& .MuiInputBase-input::placeholder': {
-                      color: '#999',
-                      opacity: 1,
+                    '&:hover fieldset': {
+                      borderColor: '#A0A0A0',
                     },
-                  }}
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#1976d2',
+                    },
+                  },
+                  '& .MuiInputBase-input::placeholder': {
+                    color: '#999',
+                    opacity: 1,
+                  },
+                }}
               />
               {errors.address && (
                 <FormHelperText error sx={{ ml: 0 }}>
@@ -322,32 +321,32 @@ export default function New() {
               )}
             </Grid>
 
-              {/* Row 2 */}
+            {/* Row 2 */}
             <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
-                  Date of Birth:
+                Date of Birth:
               </Typography>
               <TextField
-                  {...register('dateOfBirth')}
-                  fullWidth
-                  type="date"
-                  error={!!errors.dateOfBirth}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '6px',
-                      backgroundColor: '#fff',
-                      fontSize: '14px',
-                      '& fieldset': {
-                        borderColor: '#D0D0D0',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: '#A0A0A0',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                      },
+                {...register('dateOfBirth')}
+                fullWidth
+                type="date"
+                error={!!errors.dateOfBirth}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '6px',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    '& fieldset': {
+                      borderColor: '#D0D0D0',
                     },
-                  }}
+                    '&:hover fieldset': {
+                      borderColor: '#A0A0A0',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#1976d2',
+                    },
+                  },
+                }}
               />
               {errors.dateOfBirth && (
                 <FormHelperText error sx={{ ml: 0 }}>
@@ -358,34 +357,34 @@ export default function New() {
 
             <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
-                  Contact Email:
+                Contact Email:
               </Typography>
               <TextField
-                  {...register('contactEmail')}
-                  fullWidth
-                  type="email"
-                  placeholder="Type your Email"
-                  error={!!errors.contactEmail}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '6px',
-                      backgroundColor: '#fff',
-                      fontSize: '14px',
-                      '& fieldset': {
-                        borderColor: '#D0D0D0',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: '#A0A0A0',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                      },
+                {...register('contactEmail')}
+                fullWidth
+                type="email"
+                placeholder="Type your Email"
+                error={!!errors.contactEmail}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '6px',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    '& fieldset': {
+                      borderColor: '#D0D0D0',
                     },
-                    '& .MuiInputBase-input::placeholder': {
-                      color: '#999',
-                      opacity: 1,
+                    '&:hover fieldset': {
+                      borderColor: '#A0A0A0',
                     },
-                  }}
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#1976d2',
+                    },
+                  },
+                  '& .MuiInputBase-input::placeholder': {
+                    color: '#999',
+                    opacity: 1,
+                  },
+                }}
               />
               {errors.contactEmail && (
                 <FormHelperText error sx={{ ml: 0 }}>
@@ -396,33 +395,33 @@ export default function New() {
 
             <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
-                  Contact Cell Number:
+                Contact Cell Number:
               </Typography>
               <TextField
-                  {...register('contactCell')}
-                  fullWidth
-                  placeholder="Type your Cell No"
-                  error={!!errors.contactCell}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '6px',
-                      backgroundColor: '#fff',
-                      fontSize: '14px',
-                      '& fieldset': {
-                        borderColor: '#D0D0D0',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: '#A0A0A0',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                      },
+                {...register('contactCell')}
+                fullWidth
+                placeholder="Type your Cell No"
+                error={!!errors.contactCell}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '6px',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    '& fieldset': {
+                      borderColor: '#D0D0D0',
                     },
-                    '& .MuiInputBase-input::placeholder': {
-                      color: '#999',
-                      opacity: 1,
+                    '&:hover fieldset': {
+                      borderColor: '#A0A0A0',
                     },
-                  }}
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#1976d2',
+                    },
+                  },
+                  '& .MuiInputBase-input::placeholder': {
+                    color: '#999',
+                    opacity: 1,
+                  },
+                }}
               />
               {errors.contactCell && (
                 <FormHelperText error sx={{ ml: 0 }}>
@@ -434,66 +433,66 @@ export default function New() {
             {/* Row 3 */}
             <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
-                  Company Name
+                Company Name
               </Typography>
               <TextField
-                  {...register('companyName')}
-                  fullWidth
-                  placeholder="Type Here"
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '6px',
-                      backgroundColor: '#fff',
-                      fontSize: '14px',
-                      '& fieldset': {
-                        borderColor: '#D0D0D0',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: '#A0A0A0',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                      },
+                {...register('companyName')}
+                fullWidth
+                placeholder="Type Here"
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '6px',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    '& fieldset': {
+                      borderColor: '#D0D0D0',
                     },
-                    '& .MuiInputBase-input::placeholder': {
-                      color: '#999',
-                      opacity: 1,
+                    '&:hover fieldset': {
+                      borderColor: '#A0A0A0',
                     },
-                  }}
-                />
-              </Grid>
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#1976d2',
+                    },
+                  },
+                  '& .MuiInputBase-input::placeholder': {
+                    color: '#999',
+                    opacity: 1,
+                  },
+                }}
+              />
+            </Grid>
 
             <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
-                  Price
-                </Typography>
+                Price
+              </Typography>
               <FormControl fullWidth error={!!errors.price}>
                 <Select
-                    {...register('price')}
-                    displayEmpty
-                    defaultValue=""
-                    sx={{
-                      borderRadius: '6px',
-                      backgroundColor: '#fff',
-                      fontSize: '14px',
-                      '& .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#D0D0D0',
-                      },
-                      '&:hover .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#A0A0A0',
-                      },
-                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#1976d2',
-                      },
-                    }}
-                  >
-                    <MenuItem value="" disabled>
-                      <span style={{ color: '#999' }}>Please Select your Packages</span>
-                    </MenuItem>
-                    <MenuItem value="basic">Basic Package - $500</MenuItem>
-                    <MenuItem value="standard">Standard Package - $1000</MenuItem>
-                    <MenuItem value="premium">Premium Package - $2000</MenuItem>
-                    <MenuItem value="enterprise">Enterprise Package - $5000</MenuItem>
+                  {...register('price')}
+                  displayEmpty
+                  defaultValue=""
+                  sx={{
+                    borderRadius: '6px',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#D0D0D0',
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#A0A0A0',
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#1976d2',
+                    },
+                  }}
+                >
+                  <MenuItem value="" disabled>
+                    <span style={{ color: '#999' }}>Please Select your Packages</span>
+                  </MenuItem>
+                  <MenuItem value="basic">Basic Package - $500</MenuItem>
+                  <MenuItem value="standard">Standard Package - $1000</MenuItem>
+                  <MenuItem value="premium">Premium Package - $2000</MenuItem>
+                  <MenuItem value="enterprise">Enterprise Package - $5000</MenuItem>
                 </Select>
                 {errors.price && (
                   <FormHelperText error sx={{ ml: 0 }}>
@@ -501,84 +500,84 @@ export default function New() {
                   </FormHelperText>
                 )}
               </FormControl>
-              </Grid>
+            </Grid>
 
             <Grid size={{ xs: 12, sm: 4, md: 4 }}>
               <Typography sx={{ fontSize: '14px', color: '#333', mb: 1, fontWeight: 500 }}>
-                  Comments
+                Comments
               </Typography>
               <TextField
-                  {...register('comments')}
-                  fullWidth
-                  placeholder="You'll get"
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '6px',
-                      backgroundColor: '#fff',
-                      fontSize: '14px',
-                      '& fieldset': {
-                        borderColor: '#D0D0D0',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: '#A0A0A0',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                      },
+                {...register('comments')}
+                fullWidth
+                placeholder="You'll get"
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '6px',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    '& fieldset': {
+                      borderColor: '#D0D0D0',
                     },
-                    '& .MuiInputBase-input::placeholder': {
-                      color: '#999',
-                      opacity: 1,
+                    '&:hover fieldset': {
+                      borderColor: '#A0A0A0',
                     },
-                  }}
-                />
-              </Grid>
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#1976d2',
+                    },
+                  },
+                  '& .MuiInputBase-input::placeholder': {
+                    color: '#999',
+                    opacity: 1,
+                  },
+                }}
+              />
+            </Grid>
           </Grid>
 
           {/* Action Buttons */}
           <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 4 }}>
             <Button
-                variant="outlined"
-                onClick={handleBack}
-                type="button"
-                sx={{
-                  borderColor: '#D0D0D0',
-                  color: '#333',
-                  textTransform: 'none',
-                  px: 4,
-                  py: 1.5,
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  borderRadius: '6px',
-                  '&:hover': {
-                    borderColor: '#A0A0A0',
-                    backgroundColor: '#F9F9F9',
-                  },
-                }}
+              variant="outlined"
+              onClick={handleBack}
+              type="button"
+              sx={{
+                borderColor: '#D0D0D0',
+                color: '#333',
+                textTransform: 'none',
+                px: 4,
+                py: 1.5,
+                fontSize: '14px',
+                fontWeight: 500,
+                borderRadius: '6px',
+                '&:hover': {
+                  borderColor: '#A0A0A0',
+                  backgroundColor: '#F9F9F9',
+                },
+              }}
             >
               BACK
             </Button>
             <Button
-                variant="contained"
-                type="submit"
-                disabled={isSubmitting}
-                sx={{
-                  backgroundColor: '#86937F',
-                  color: '#fff',
-                  textTransform: 'none',
-                  px: 4,
-                  py: 1.5,
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  borderRadius: '6px',
-                  '&:hover': {
-                    backgroundColor: '#6f7a68',
-                  },
-                  '&:disabled': {
-                    backgroundColor: '#d0d0d0',
-                    color: '#999',
-                  },
-                }}
+              variant="contained"
+              type="submit"
+              disabled={isSubmitting}
+              sx={{
+                backgroundColor: '#86937F',
+                color: '#fff',
+                textTransform: 'none',
+                px: 4,
+                py: 1.5,
+                fontSize: '14px',
+                fontWeight: 500,
+                borderRadius: '6px',
+                '&:hover': {
+                  backgroundColor: '#6f7a68',
+                },
+                '&:disabled': {
+                  backgroundColor: '#d0d0d0',
+                  color: '#999',
+                },
+              }}
             >
               {isSubmitting ? 'CREATING...' : 'NEXT'}
             </Button>
