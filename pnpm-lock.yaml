@@ -16,7 +16,7 @@ importers:
         version: 11.14.1(@emotion/react@11.14.0(@types/react@19.2.18)(react@19.2.3))(@types/react@19.2.18)(react@19.2.3)
       '@hookform/resolvers':
         specifier: ^5.7.1
-        version: 5.7.1(@standard-schema/spec@1.1.0)(effect@3.18.4)(react-hook-form@7.84.0(react@19.2.3))(valibot@1.4.2(typescript@7.0.2))(zod@4.3.5)
+        version: 5.7.1(@standard-schema/spec@1.1.0)(effect@3.18.4)(react-hook-form@7.84.0(react@19.2.3))(valibot@1.5.0(typescript@7.0.2))(zod@4.3.5)
       '@mui/icons-material':
         specifier: ^9.3.1
         version: 9.3.1(@mui/material@9.3.1(@emotion/react@11.14.0(@types/react@19.2.18)(react@19.2.3))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.18)(react@19.2.3))(@types/react@19.2.18)(react@19.2.3))(@types/react@19.2.18)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(@types/react@19.2.18)(react@19.2.3)
@@ -49,7 +49,7 @@ importers:
         version: 7.84.0(react@19.2.3)
       valibot:
         specifier: ^1.4.2
-        version: 1.4.2(typescript@7.0.2)
+        version: 1.5.0(typescript@7.0.2)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.3.3
@@ -2721,8 +2721,8 @@ packages:
       typescript:
         optional: true
 
-  valibot@1.4.2:
-    resolution: {integrity: sha512-gjdCvJ6d3RyHAneqxMYMW9QMCwYMb3jpOO0IyHZV1bnRHFBHrX3VkIILt5XYR0WhwHiH7Mty8ovuPZ/O3gamrg==}
+  valibot@1.5.0:
+    resolution: {integrity: sha512-nil6AkP2TChWL43Z5uJ6GTxX01CUA+g8LWUM+N/rB9NBbkUMaUsi9PUNzlUPgoKASgmx9f7eGOYpJ04/fSa6FQ==}
     peerDependencies:
       typescript: '>=5'
     peerDependenciesMeta:
@@ -3045,14 +3045,14 @@ snapshots:
     dependencies:
       hono: 4.10.6
 
-  '@hookform/resolvers@5.7.1(@standard-schema/spec@1.1.0)(effect@3.18.4)(react-hook-form@7.84.0(react@19.2.3))(valibot@1.4.2(typescript@7.0.2))(zod@4.3.5)':
+  '@hookform/resolvers@5.7.1(@standard-schema/spec@1.1.0)(effect@3.18.4)(react-hook-form@7.84.0(react@19.2.3))(valibot@1.5.0(typescript@7.0.2))(zod@4.3.5)':
     dependencies:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.84.0(react@19.2.3)
     optionalDependencies:
       '@standard-schema/spec': 1.1.0
       effect: 3.18.4
-      valibot: 1.4.2(typescript@7.0.2)
+      valibot: 1.5.0(typescript@7.0.2)
       zod: 4.3.5
 
   '@humanfs/core@0.19.1': {}
@@ -5523,7 +5523,7 @@ snapshots:
     optionalDependencies:
       typescript: 7.0.2
 
-  valibot@1.4.2(typescript@7.0.2):
+  valibot@1.5.0(typescript@7.0.2):
     optionalDependencies:
       typescript: 7.0.2
 
