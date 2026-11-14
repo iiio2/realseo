@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 import { valibotResolver } from '@hookform/resolvers/valibot';
 import * as v from 'valibot';
 import { useRouter } from 'next/router';
@@ -64,7 +64,7 @@ export default function New() {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors, touchedFields },
   } = useForm<FormData>({
     resolver: valibotResolver(formSchema),
@@ -82,7 +82,7 @@ export default function New() {
     },
   });
 
-  const formValues = watch();
+  const formValues = useWatch({ control });
 
   const isFieldValid = (field: keyof FormData): boolean => {
     return touchedFields[field] === true && !errors[field] && formValues[field] !== '';

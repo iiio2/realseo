@@ -1,6 +1,12 @@
 import { AppBar, Box, Toolbar, Avatar, Menu, MenuItem, Typography, IconButton } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Image from 'next/image';
+import logoImg from '@/assets/images/new-logo.png';
+import threeIcon from '@/assets/images/three-icon.png';
+import bugReportIcon from '@/assets/images/ject.png';
+import notificationsIcon from '@/assets/images/icon-1.png';
+import settingsIcon from '@/assets/images/icon-2.png';
+import avatarImg from '@/assets/images/man.jpg';
 import { useState } from 'react';
 
 interface NavbarProps {
@@ -49,7 +55,7 @@ const Navbar = ({ handleDrawerToggle }: NavbarProps) => {
             height: { xs: 36, sm: 44, md: 53 }
           }}>
             <Image
-              src="/new-logo.png"
+              src={logoImg}
               alt="REALSEO Logo"
               fill
               priority
@@ -68,7 +74,7 @@ const Navbar = ({ handleDrawerToggle }: NavbarProps) => {
             aria-label="toggle sidebar"
           >
             <Image
-              src="/three-icon.png"
+              src={threeIcon}
               alt='Toggle sidebar'
               width={34}
               height={20}
@@ -78,7 +84,7 @@ const Navbar = ({ handleDrawerToggle }: NavbarProps) => {
           </IconButton>
           <Box sx={{ display: { xs: 'none', md: 'block' } }}>
             <Image
-              src="/three-icon.png"
+              src={threeIcon}
               alt='Three icon'
               width={34}
               height={20}
@@ -93,21 +99,21 @@ const Navbar = ({ handleDrawerToggle }: NavbarProps) => {
           {/* Hide bug/notification/settings icons on mobile */}
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1.5 }}>
             <Image
-              src="/ject.png"
+              src={bugReportIcon}
               alt="Bug Report"
               width={33}
               height={34}
               style={{ objectFit: 'contain' }}
             />
             <Image
-              src="/icon-1.png"
+              src={notificationsIcon}
               alt="Notifications"
               width={33}
               height={34}
               style={{ objectFit: 'contain' }}
             />
             <Image
-              src="/icon-2.png"
+              src={settingsIcon}
               alt="Settings"
               width={33}
               height={34}
@@ -131,7 +137,7 @@ const Navbar = ({ handleDrawerToggle }: NavbarProps) => {
           >
             <Avatar
               alt="David K. Croxton"
-              src="/man.jpg"
+              src={avatarImg.src}
               sx={{
                 width: 32,
                 height: 33,
@@ -164,14 +170,16 @@ const Navbar = ({ handleDrawerToggle }: NavbarProps) => {
         open={open}
         onClose={handleClose}
         onClick={handleClose}
-        PaperProps={{
-          elevation: 3,
-          sx: {
-            mt: 1.5,
-            minWidth: 200,
-            '& .MuiMenuItem-root': {
-              px: 2,
-              py: 1.5,
+        slotProps={{
+          paper: {
+            elevation: 3,
+            sx: {
+              mt: 1.5,
+              minWidth: 200,
+              '& .MuiMenuItem-root': {
+                px: 2,
+                py: 1.5,
+              },
             },
           },
         }}

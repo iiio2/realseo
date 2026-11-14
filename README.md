@@ -67,7 +67,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `pnpm dev` | Start the development server |
 | `pnpm build` | Production build |
 | `pnpm start` | Serve the production build |
-| `pnpm lint` | Run ESLint |
+| `pnpm lint` | Run oxlint |
 
 ## Project structure
 

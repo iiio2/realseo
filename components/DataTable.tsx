@@ -10,6 +10,7 @@ import {
   Box,
 } from '@mui/material';
 import Image from 'next/image';
+import arrowIcon from '@/assets/images/arrow.png';
 
 export interface Column {
   id: string;
@@ -78,7 +79,7 @@ const DataTable = ({ columns, rows, onSort }: DataTableProps) => {
                         },
                       }}
                     >
-                     <Image src="/arrow.png" alt="Sort" width={16} height={16} style={{ objectFit: 'contain' }} /> 
+                     <Image src={arrowIcon} alt="Sort" width={16} height={16} style={{ objectFit: 'contain' }} /> 
                     </IconButton>
                   )}
                 </Box>

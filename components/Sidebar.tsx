@@ -1,23 +1,28 @@
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Drawer } from '@mui/material';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
+import dashboardIcon from '@/assets/images/dashboard-icon.png';
+import accountManagerIcon from '@/assets/images/account-manager-icon.png';
+import salesTeamIcon from '@/assets/images/sales-team-icon.png';
+import clientsIcon from '@/assets/images/clients-icon.png';
+import settingsIcon from '@/assets/images/settings-icon.png';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 interface MenuItem {
   label: string;
-  icon: string;
+  icon: StaticImageData;
   path: string;
 }
 
 const menuItems: MenuItem[] = [
-  { label: 'Dashboard', icon: '/dashboard-icon.png', path: '/dashboard' },
-  { label: 'Account Managers', icon: '/account-manager-icon.png', path: '/account-managers' },
-  { label: 'Tasks', icon: '/account-manager-icon.png', path: '/tasks' },
-  { label: 'Sales Team', icon: '/sales-team-icon.png', path: '/sales-team' },
-  { label: 'Vendors', icon: '/account-manager-icon.png', path: '/vendors' },
-  { label: 'Clients', icon: '/clients-icon.png', path: '/' },
-  { label: 'Settings', icon: '/settings-icon.png', path: '/settings' },
+  { label: 'Dashboard', icon: dashboardIcon, path: '/dashboard' },
+  { label: 'Account Managers', icon: accountManagerIcon, path: '/account-managers' },
+  { label: 'Tasks', icon: accountManagerIcon, path: '/tasks' },
+  { label: 'Sales Team', icon: salesTeamIcon, path: '/sales-team' },
+  { label: 'Vendors', icon: accountManagerIcon, path: '/vendors' },
+  { label: 'Clients', icon: clientsIcon, path: '/' },
+  { label: 'Settings', icon: settingsIcon, path: '/settings' },
 ];
 
 interface SidebarProps {
@@ -83,9 +88,13 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }: SidebarProps) => {
                 </ListItemIcon>
                 <ListItemText
                   primary={item.label}
-                  primaryTypographyProps={{
-                    fontSize: '14px',
-                    fontWeight: isActive ? 600 : 400,
+                  slotProps={{
+                    primary: {
+                      sx: {
+                        fontSize: '14px',
+                        fontWeight: isActive ? 600 : 400,
+                      },
+                    },
                   }}
                 />
               </ListItemButton>
